@@ -1,5 +1,5 @@
 import java.io.*;
-import java.utils.*;
+import java.util.*;
 
 public class LoopSum {
     public static void main(String[] args) {

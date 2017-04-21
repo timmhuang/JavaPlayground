@@ -1,3 +1,4 @@
+package ListPkg;
 import java.io.*;
 
 public class LinkedList {
@@ -23,9 +24,9 @@ public class LinkedList {
         cur = dummy.next;
     }
 
-    public Object nextElement() {
+    public Object nextElement() throws NoNextElementException {
         if (!hasMoreElements()) {
-            return null;
+            throw new NoNextElementException();
         }
         Object ret = cur.item;
         cur = cur.next;
@@ -44,26 +45,7 @@ public class LinkedList {
         }
         System.out.println();
     }
-
-    public static void main(String[] args) {
-        LinkedList head = new LinkedList();
-        for (int i = 0; i < args.length; ++i) {
-            head.AddToEnd(new String(args[i]));
-        }
-
-        head.firstElement();
-        while (head.hasMoreElements()) {
-            System.out.printf("%s ", head.nextElement());
-        }
-        System.out.println();
-        head.Print();
-        System.out.println(head.nextElement());
-        head.AddToEnd(new Integer(12345));
-        head.Print();
-    }
 }
-
-class EndOfListException extends Exception {}
 
 class ListNode {
     Object item;
